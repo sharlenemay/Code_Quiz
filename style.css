@@ -1,21 +1,50 @@
-h5 {
-    font-size: 35px;
+#title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
     font-weight: 700;
 }
-.card {
-    width: 500px;
+span {
+    display: block;
+}
+.container {
+    width: 600px;
     position: fixed;
-    left: 470px;
+    top: 25%;
+    left: 30%;
+    text-align: center;
+}
+#text{
+    text-align: center;
+    margin: 10px;
+    font-size: 18px;
 }
 
-.btn-primary {
+button {
     background: #32a885;
     background-color: #32a885;
     border-color: #32a885;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 4px;
+    color: white;
 }
 
-.btn-primary:hover {
+button:hover {
     background: #24785f;
     background-color: #24785f;
     border-color: #24785f;
+}
+
+#highscores {
+    position: fixed;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #32a885;
+}
+
+#timer {
+    float: right;
 }
