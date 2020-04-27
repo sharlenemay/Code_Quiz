@@ -1,0 +1,21 @@
+h5 {
+    font-size: 35px;
+    font-weight: 700;
+}
+.card {
+    width: 500px;
+    position: fixed;
+    left: 470px;
+}
+
+.btn-primary {
+    background: #32a885;
+    background-color: #32a885;
+    border-color: #32a885;
+}
+
+.btn-primary:hover {
+    background: #24785f;
+    background-color: #24785f;
+    border-color: #24785f;
+}
