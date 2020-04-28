@@ -30,7 +30,7 @@ var questions = [
         choice2: "2. curly brackets",
         choice3: "3. quotes",
         choice4: "4. parentheses",
-        correct: "4. parentheses"
+        correct: "3. quotes"
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -77,6 +77,7 @@ function startQuiz (){
             
             if(secondsLeft === 0) {
                 clearInterval(timerInterval);
+            // highscores()
             }
       }, 1000);
     }
@@ -101,20 +102,28 @@ function renderQuestion (){
 
 }
 
+// function highscores() {
+
+// }
+
 var score = 0;
 function nextQuestion() {
-    // if (questions[runningQIndex].correct == event.target.textContent){
-    //     score++;
-    // }
-    // else {
-    //     score--;
-    // }
-        if (runningQIndex<lastQIndex){
-            runningQIndex++;
-            renderQuestion();
-        }
-        // else {redirect to scores page}
+    if (questions[runningQIndex].correct == event.target.textContent){
+        score++;
     }
+    else {
+        score--;
+    }
+    console.log(score);
+    if (runningQIndex<lastQIndex){
+        runningQIndex++;
+        renderQuestion();
+    }
+    // else {redirect to scores page}
+    // else {
+    //     // highscores();
+    // }
+}
 
 // localStorage
 
