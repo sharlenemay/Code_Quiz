@@ -102,18 +102,18 @@ function renderQuestion (){
 }
 
 var score = 0;
-function nextQuestion(event) {
+function nextQuestion() {
     for (i=0; i < questions.length; i++){
         if (runningQIndex<lastQIndex){
             runningQIndex++;
             renderQuestion();
         }
-        if (questions[runningQIndex].correct == event.target.textContent){
-            score++;
-        }
-        else {
-            score--;
-        }
+        // if (questions[runningQIndex].correct == event.target.textContent){
+        //     score++;
+        // }
+        // else {
+        //     score--;
+        // }
     }
 
 }
