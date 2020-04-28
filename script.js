@@ -103,20 +103,18 @@ function renderQuestion (){
 
 var score = 0;
 function nextQuestion() {
-    for (i=0; i < questions.length; i++){
+    // if (questions[runningQIndex].correct == event.target.textContent){
+    //     score++;
+    // }
+    // else {
+    //     score--;
+    // }
         if (runningQIndex<lastQIndex){
             runningQIndex++;
             renderQuestion();
         }
-        // if (questions[runningQIndex].correct == event.target.textContent){
-        //     score++;
-        // }
-        // else {
-        //     score--;
-        // }
+        // else {redirect to scores page}
     }
-
-}
 
 // localStorage
 
