@@ -43,7 +43,7 @@ var questions = [
 ]
 
 var runningQIndex = 0;
-var lastQIndex = 4;
+var lastQIndex = questions.length-1;
 
 var start = document.getElementById("start");
 start.textContent="Start!"
@@ -84,36 +84,38 @@ function startQuiz (){
 
 // function to display questions and choices
 function renderQuestion (){
+    var q = questions[runningQIndex];
+    var choices = document.getElementById("choices");
+    choices.style.display = "block";
+    question.style.display = "block";
+    question.innerHTML = "<p>" + q.question + "</p>";
+    a.textContent = q.choice1;
+    b.textContent = q.choice2;
+    c.textContent = q.choice3;
+    d.textContent = q.choice4;
+
+    a.addEventListener("click", nextQuestion);
+    b.addEventListener("click", nextQuestion);
+    c.addEventListener("click", nextQuestion);
+    d.addEventListener("click", nextQuestion);
+
+}
+
+var score = 0;
+function nextQuestion(event) {
     for (i=0; i < questions.length; i++){
-        var q = questions[runningQIndex];
-        var choices = document.getElementById("choices");
-        choices.style.display = "block";
-        question.style.display = "block";
-        question.innerHTML = "<p>" + q.question + "</p>";
-        a.textContent = q.choice1;
-        b.textContent = q.choice2;
-        c.textContent = q.choice3;
-        d.textContent = q.choice4;
-
-        a.addEventListener("click", nextQuestion);
-        b.addEventListener("click", nextQuestion);
-        c.addEventListener("click", nextQuestion);
-        d.addEventListener("click", nextQuestion);
-
-        var score = 0;
-        function nextQuestion(event) {
-            if (questions[runningQIndex].correct == event.target.textContent){
-                score++;
-            }
-            else {
-                score--;
-            }
-            if (runningQIndex<lastQIndex){
-                runningQIndex++;
-                renderQuestion();
-            }
+        if (runningQIndex<lastQIndex){
+            runningQIndex++;
+            renderQuestion();
+        }
+        if (questions[runningQIndex].correct == event.target.textContent){
+            score++;
+        }
+        else {
+            score--;
         }
     }
+
 }
 
 // localStorage
