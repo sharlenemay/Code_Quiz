@@ -14,7 +14,7 @@ var questions = [
         choice2: "2. curly brackets",
         choice3: "3. parentheses",
         choice4: "4. square brackets",
-        correct: "2. curly brackets"
+        correct: "3. parentheses"
     },
     {
         question: "Arrays in Javascript can be used to store _____.",
@@ -120,14 +120,27 @@ function nextQuestion() {
         renderQuestion();
     }
     // else {redirect to scores page}
-    // else {
-    //     // highscores();
-    // }
+    else {
+        scores();
+    }
 }
 
-// localStorage
+var highscores = []
 
-// highscores page
+// scores page
+function scores (){
+    title.style.display="block";
+    startText.style.display="block";
+    title.textContent="All done!";
+    startText.textContent="Your final score is "+ score + ".";
+    question.style.display="none";
+    choices.style.display="none";
+
+    var submit  = document.getElementById("scores-save");
+    submit.style.display="block";
+    
+}
+
 
 // sTART
 start.addEventListener("click", startQuiz);

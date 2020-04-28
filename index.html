@@ -23,8 +23,11 @@
             <button id="choice3"></button><br>
             <button id="choice4"></button><br>
         </div>
-        <div id="submit" style="display:none"></div>
-        <div id="highscores" style="display:none"></div>
+        <form id="scores-save" method="POST" style="display:none">
+            <label for="name">Enter Initials</label>
+            <input type="text" placeholder="" name="name-input" id="name-input" />
+        </form>
+        <div id="final" style="display:none"></div>
     </div>
     
     <script src="script.js"></script>
