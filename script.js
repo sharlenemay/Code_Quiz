@@ -102,13 +102,12 @@ function renderQuestion (){
 
         var score = 0;
         function nextQuestion(event) {
-            if (questions[runningQIndex].correct == event.target.value){
+            if (questions[runningQIndex].correct == event.target.textContent){
                 score++;
             }
             else {
                 score--;
             }
-            console.log(score);
             if (runningQIndex<lastQIndex){
                 runningQIndex++;
                 renderQuestion();
