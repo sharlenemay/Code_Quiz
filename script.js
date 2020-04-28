@@ -1,3 +1,4 @@
+// set variables for HTML elements
 var questions = [
     {
         question: "Commonly used data types do NOT include:",
@@ -42,6 +43,7 @@ var questions = [
 ]
 
 var runningQIndex = 0;
+var lastQIndex = 4;
 
 var start = document.getElementById("start");
 start.textContent="Start!"
@@ -59,7 +61,7 @@ var c = document.getElementById("choice3");
 var d = document.getElementById("choice4");
 var timer = document.getElementById("timer");
 
-
+// function to begin quiz
 function startQuiz (){
     title.style.display="none";
     startText.style.display="none";
@@ -75,12 +77,12 @@ function startQuiz (){
             
             if(secondsLeft === 0) {
                 clearInterval(timerInterval);
-                highscores();
             }
       }, 1000);
     }
 }
 
+// function to display questions and choices
 function renderQuestion (){
     for (i=0; i < questions.length; i++){
         var q = questions[runningQIndex];
@@ -93,9 +95,31 @@ function renderQuestion (){
         c.textContent = q.choice3;
         d.textContent = q.choice4;
 
+        a.addEventListener("click", nextQuestion);
+        b.addEventListener("click", nextQuestion);
+        c.addEventListener("click", nextQuestion);
+        d.addEventListener("click", nextQuestion);
 
+        var score = 0;
+        function nextQuestion(event) {
+            if (questions[runningQIndex].correct == event.target.value){
+                score++;
+            }
+            else {
+                score--;
+            }
+            console.log(score);
+            if (runningQIndex<lastQIndex){
+                runningQIndex++;
+                renderQuestion();
+            }
+        }
     }
 }
+
+// localStorage
+
+// highscores page
 
 // sTART
 start.addEventListener("click", startQuiz);
