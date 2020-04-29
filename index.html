@@ -24,13 +24,35 @@
             <button id="choice4"></button><br>
         </div>
         <form id="scores-save" method="POST" style="display:none">
-            <label for="name">Enter Initials</label>
+            <label for="name-input">Enter Initials: </label>
             <input type="text" placeholder="" name="name-input" id="name-input" />
         </form>
-        <div id="final" style="display:none"></div>
+        <ol id="final" style="display:none">
+            <li><span id="final-score"></span></li></span>
+        </ol>
+        <button id="go-back" style="display:none"></button>
+        <button id="clear" style="display:none"></button>
     </div>
     
     <script src="script.js"></script>
 </body>
 </html>
 
+
+<!-- // console.log
+// console.log(storageScores);
+
+// storageScores[username] = score.toString();
+// localStorage.setItem("scores",storageScores);
+// var updatedStorage = localStorage.getItem("scores");
+// for (var item in updatedStorage) {
+//     // select item from updatedStorage object append item to ordered list
+//     var newItem = document.createElement("li");
+//     var textnode = document.createTextNode(item + " : " + updatedStorage[item]);
+//     newItem.appendChild(textnode);
+//     document.getElementById("final").appendChild(newItem);
+// }
+
+
+// // set Local Storage
+//     localStorage.setItem("name", JSON.stringify(score)); -->

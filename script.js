@@ -68,19 +68,19 @@ function startQuiz (){
     start.style.display="none";
     setTime();
     renderQuestion();
+}
 
-    function setTime() {
-        var secondsLeft = 75;
-        var timerInterval = setInterval(function() {
-            secondsLeft--;
-            timer.textContent = "Timer: " + secondsLeft;
-            
-            if(secondsLeft === 0) {
-                clearInterval(timerInterval);
-            // highscores()
-            }
-      }, 1000);
-    }
+// TIMER
+var secondsLeft = 75;
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timer.textContent = "Timer: " + secondsLeft;
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            scores();
+        };
+  }, 1000);
 }
 
 // function to display questions and choices
@@ -100,12 +100,9 @@ function renderQuestion (){
     c.addEventListener("click", nextQuestion);
     d.addEventListener("click", nextQuestion);
 
-}
+};
 
-// function highscores() {
-
-// }
-
+// function to progress the quiz
 var score = 0;
 function nextQuestion() {
     if (questions[runningQIndex].correct == event.target.textContent){
@@ -113,7 +110,9 @@ function nextQuestion() {
     }
     else {
         score--;
+        secondsLeft -= 10;
     }
+
     console.log(score);
     if (runningQIndex<lastQIndex){
         runningQIndex++;
@@ -125,9 +124,9 @@ function nextQuestion() {
     }
 }
 
-var highscores = []
 
-// scores page
+// submit scores page
+var submit  = document.getElementById("scores-save");
 function scores (){
     title.style.display="block";
     startText.style.display="block";
@@ -136,10 +135,49 @@ function scores (){
     question.style.display="none";
     choices.style.display="none";
 
-    var submit  = document.getElementById("scores-save");
     submit.style.display="block";
-    
-}
+    submit.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var nameInput = document.querySelector("#name-input");
+        var name = nameInput.value.trim();
+
+        if(name === "") {
+            return;
+        }
+        highscores.push(name);
+        nameInput = "";
+
+        final(name);
+
+    })
+};
+
+var viewScores = document.getElementById("highscores");
+viewScores.addEventListener("click",final);
+var highscores = [];
+var allNames = {};
+
+// if (!localStorage.getItem("scores")){
+//     localStorage.setItem("scores",{});
+// };
+
+// highscores page
+function final (name){
+
+    title.textContent="Highscores: ";
+    title.setAttribute("float","left");
+    startText.style.display="none";
+    submit.style.display = "none";
+    start.style.display = "none";
+
+    var final = document.getElementById("final");
+    final.style.display="block";
+    var userScore = document.getElementById("final-score");
+
+    // var storageScores = localStorage.getItem("scores");
+
+    userScore.textContent = name + " : " + score;
+};
 
 
 // sTART
