@@ -71,7 +71,7 @@ function startQuiz (){
 }
 
 // TIMER
-var secondsLeft = 75;
+var secondsLeft = 50;
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
