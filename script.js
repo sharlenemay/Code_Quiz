@@ -174,51 +174,31 @@ function final (name){
     goBack.style.display = "inline-block";
     clear.style.display = "inline-block";
     goBack.addEventListener("click",function returnToStart(){
-        location.replace("https://sharlenemay.github.io/code_quiz/");
+        location.reload();
     });
     goBack.textContent = "Go Back";
     clear.textContent = "Clear Scores";
     clear.addEventListener("click", function clearScores(){
         localStorage.clear();
     });
-
+    
     var final = document.getElementById("final");
     final.style.display="block";
-
-
-    // If local storage is empty, clear final display
-    if (localStorage !== null) {
-        highscores = saved;
-    }
-    else {
-        final.style.display = "none";
-    };
+    
 
     var userScore = document.getElementById("final-score");
     userScore.textContent = name + " : " + score;
 
     // LOCAL STORAGE: SAVE SCORES
     storedScores();
-    getScores();
+    console.log(highscores);
 
     function storedScores (){
         localStorage.setItem(JSON.stringify(name),JSON.stringify(score));
     };
 
-    var saved = JSON.parse(localStorage.getItem(name.score));
-    function getScores (){
-
-        for (var i = 0; i < highscores.length; i++){
-            var list = highscores[i];
-
-            var li = document.createElement("li");
-            li.textContent = list;
-            li.setAttribute("data-index", i);
-
-            li.appendChild(final);
-        }
-    }
     // LOCAL STORAGE: SAVE SCORES
+
 
     
 };
