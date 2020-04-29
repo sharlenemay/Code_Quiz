@@ -155,7 +155,6 @@ function scores (){
 var viewScores = document.getElementById("highscores");
 viewScores.addEventListener("click",final);
 var highscores = [];
-var allNames = {};
 
 // if (!localStorage.getItem("scores")){
 //     localStorage.setItem("scores",{});
@@ -170,13 +169,27 @@ function final (name){
     submit.style.display = "none";
     start.style.display = "none";
 
+    var goBack = document.getElementById("go-back");
+    var clear = document.getElementById("clear");
+    goBack.style.display = "inline-block";
+    clear.style.display = "inline-block";
+    goBack.addEventListener("click",function returnToStart(){
+        location.replace("https://sharlenemay.github.io/code_quiz/");
+    });
+    goBack.textContent = "Go Back";
+    clear.textContent = "Clear Scores";
+    clear.addEventListener("click", function clearScores(){
+        localStorage.clear();
+        final.style.display = "none";
+    })
+
     var final = document.getElementById("final");
     final.style.display="block";
     var userScore = document.getElementById("final-score");
 
-    // var storageScores = localStorage.getItem("scores");
 
     userScore.textContent = name + " : " + score;
+
 };
 
 

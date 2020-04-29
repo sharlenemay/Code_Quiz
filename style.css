@@ -68,3 +68,25 @@ button:hover {
     margin: 10px;
     padding: 0px;
 }
+
+#go-back {
+    border-radius: 0px;
+    background-color: lightgray;
+    color: black;
+    border-color: darkgray;
+    padding: 1px;
+    font-size: 13px;
+    text-align: center;
+    float: left;
+}
+
+#clear {
+    float: left;
+    border-radius: 0px;
+    background-color: lightgray;
+    color: black;
+    font-family: sans-serif;
+    border-color: darkgray;
+    padding: 1px;
+    font-size: 13px;
+}
